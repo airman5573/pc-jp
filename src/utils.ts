@@ -33,10 +33,9 @@ export const resetArrFrom = (_arr: Array<number>, _from: number) => {
 };
 
 export const getMaxWidth = (width: number, height: number): number => {
-  console.log(width, height);
-  if (!width || !height) return 640;
+  if (!width || !height) return 600;
   const $body = document.querySelector('body') as HTMLElement;
-  if (!$body) return 640;
+  if (!$body) return 600;
   const maxWidth = Math.floor(($body.clientHeight / height) * width);
   return maxWidth;
 };
