@@ -32,7 +32,7 @@ function Intro() {
     }
     const specialRule = /[`~!@#$%^&*|\\\'\";:\/?]/gi;
     if ($input.value.length > 5 || specialRule.test($input.value)) {
-      alert('올바른 입력을 입력해 주세요');
+      alert('再確認してください');
       return;
     }
     localStorage.setItem('personal-color-name', $input.value);
