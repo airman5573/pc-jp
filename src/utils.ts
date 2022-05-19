@@ -33,6 +33,7 @@ export const resetArrFrom = (_arr: Array<number>, _from: number) => {
 };
 
 export const getMaxWidth = (width: number, height: number): number => {
+  console.log(width, height);
   if (!width || !height) return 640;
   const $body = document.querySelector('body') as HTMLElement;
   if (!$body) return 640;

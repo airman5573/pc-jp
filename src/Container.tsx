@@ -1,5 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
-import { getMaxWidth } from './utils';
+import Indicator from './Indicator';
 
 type Props = {
   children: JSX.Element;
@@ -7,19 +6,12 @@ type Props = {
 };
 
 function Container({ children, isAllImageLoaded }: Props) {
-  const [maxWidth, setMaxWidth] = useState<string>('100%');
-  const $this = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    if (!isAllImageLoaded || !$this.current) return;
-    const $el = $this.current;
-    const maxWidth = getMaxWidth($el.offsetWidth, $el.offsetHeight);
-    setMaxWidth(`${maxWidth}px`);
-  }, [isAllImageLoaded]);
-  const visibility = maxWidth === '100%' ? 'hidden' : 'visible';
+  const visibility = isAllImageLoaded ? 'visible' : 'hidden';
   return (
-    <div className="container pt-10 pb-10" style={{ maxWidth, visibility }}>
-      <div className="inner v-center" ref={$this}>
-        {children}
+    <div className="container pt-10 pb-10">
+      <div className="inner v-center">
+        {!isAllImageLoaded && <Indicator />}
+        {<div style={{ maxWidth: '640px', visibility }}>{children}</div>}
       </div>
     </div>
   );

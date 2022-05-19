@@ -42,6 +42,7 @@ function Intro() {
     if (e.key !== 'Enter') return;
     handleBtnClick();
   };
+
   return (
     <Container isAllImageLoaded={allImageCount === loadedImageCount}>
       <div className="intro v-center">
